@@ -1,5 +1,4 @@
-const API_URL =
-  "http://localhost:3000/api/eventos";
+const API_URL = "http://localhost:3000/api/eventos";
 
 export const obtenerEventos = async () => {
 
@@ -32,5 +31,20 @@ export const crearEvento = async (
     }
   );
 
+
   return await response.json();
+};
+
+export const eliminarEvento =
+  async (id) => {
+
+    const response =
+      await fetch(
+        `${API_URL}/${id}`,
+        {
+          method: "DELETE"
+        }
+      );
+
+    return await response.json();
 };

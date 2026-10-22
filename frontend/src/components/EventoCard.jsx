@@ -1,4 +1,4 @@
-function EventoCard({ evento }) {
+function EventoCard({ evento, onEliminar }) {
 
   return (
     <div
@@ -27,6 +27,16 @@ function EventoCard({ evento }) {
         {" "}
         {evento.cupos_disponibles}
       </p>
+      
+      <button
+        onClick={() =>
+          onEliminar(
+            evento.id
+          )
+        }
+      >
+        Eliminar
+      </button>
 
     </div>
   );

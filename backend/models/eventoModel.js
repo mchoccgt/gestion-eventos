@@ -65,7 +65,21 @@ const crearEvento = async (evento) => {
   return resultado;
 };
 
+const eliminarEvento = async (id) => {
+
+  const [resultado] = await pool.query(
+    `
+      DELETE FROM eventos
+      WHERE id = ?
+    `,
+    [id]
+  );
+
+  return resultado;
+};
+
 module.exports = {
     obtenerEventos,
-    crearEvento
+    crearEvento,
+    eliminarEvento
 };

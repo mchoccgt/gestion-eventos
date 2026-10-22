@@ -43,7 +43,37 @@ const crearEvento = async (req, res) => {
   }
 };
 
+const eliminarEvento = async (
+  req,
+  res
+) => {
+
+  try {
+
+    const { id } = req.params;
+
+    await eventoModel.eliminarEvento(id);
+
+    res.json({
+      mensaje:
+        "Evento eliminado"
+    });
+
+  } catch(error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      mensaje:
+        "Error al eliminar"
+    });
+
+  }
+
+};
+
 module.exports = {
     listarEventos,
-    crearEvento
+    crearEvento,
+    eliminarEvento
 };

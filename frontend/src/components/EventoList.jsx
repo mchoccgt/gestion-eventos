@@ -1,6 +1,6 @@
 import EventoCard from "./EventoCard";
 
-function EventoList({ eventos }) {
+function EventoList({ eventos, onEliminar }) {
 
   return (
     <>
@@ -9,6 +9,7 @@ function EventoList({ eventos }) {
           <EventoCard
             key={evento.id}
             evento={evento}
+            onEliminar={onEliminar}
           />
         ))
       }
