@@ -126,3 +126,42 @@ body {
 
   box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
 }
+
+.btn-primary {
+  background-color: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #284d79;
+  transform: translateY(-2px);
+}
+
+.btn-edit {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+  background-color: #e67e22;
+}
+
+.acciones-evento {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}

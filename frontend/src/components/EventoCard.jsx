@@ -22,7 +22,10 @@ function EventoCard({ evento, onEliminar, onEditar }) {
         {evento.cupos_disponibles}
       </p>
       
-      <button
+
+      <div className="acciones-evento">
+
+      <button className="btn-edit"
         onClick={() =>
           onEditar(evento)
         }
@@ -30,7 +33,7 @@ function EventoCard({ evento, onEliminar, onEditar }) {
         Editar
       </button>
 
-      <button className="btn-danger"
+      <button className= "btn-danger"
         onClick={() =>
           onEliminar(
             evento.id
@@ -39,6 +42,8 @@ function EventoCard({ evento, onEliminar, onEditar }) {
       >
         Eliminar
       </button>
+
+      </div>
 
     </div>
   );

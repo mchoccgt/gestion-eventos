@@ -123,7 +123,7 @@ function App() {
       </h2>
 
       {
-        <button onClick={() => {setMostrarFormulario(true);setEventoEditar(null);}}>
+        <button className="btn-primary" onClick={() => {setMostrarFormulario(true);setEventoEditar(null);}}>
           ➕ Añadir Nuevo Evento
         </button>
       }
