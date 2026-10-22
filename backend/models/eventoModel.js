@@ -5,6 +5,7 @@ const obtenerEventos = async () => {
     const [rows] = await pool.query(`
         SELECT
             e.id,
+            e.categoria_id,
             e.nombre,
             c.nombre AS categoria,
             e.descripcion,
@@ -78,8 +79,53 @@ const eliminarEvento = async (id) => {
   return resultado;
 };
 
+const actualizarEvento = async (
+  id,
+  evento
+) => {
+
+  const {
+    categoria_id,
+    nombre,
+    descripcion,
+    fecha,
+    lugar,
+    precio,
+    cupos_totales
+  } = evento;
+
+  const [resultado] = await pool.query(
+    `
+    UPDATE eventos
+    SET
+      categoria_id = ?,
+      nombre = ?,
+      descripcion = ?,
+      fecha = ?,
+      lugar = ?,
+      precio = ?,
+      cupos_totales = ?
+    WHERE id = ?
+    `,
+    [
+      categoria_id,
+      nombre,
+      descripcion,
+      fecha,
+      lugar,
+      precio,
+      cupos_totales,
+      id
+    ]
+  );
+
+  return resultado;
+
+};
+
 module.exports = {
     obtenerEventos,
     crearEvento,
-    eliminarEvento
+    eliminarEvento,
+    actualizarEvento
 };

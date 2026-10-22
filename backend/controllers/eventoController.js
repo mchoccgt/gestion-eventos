@@ -72,8 +72,41 @@ const eliminarEvento = async (
 
 };
 
+const actualizarEvento = async (
+  req,
+  res
+) => {
+
+  try {
+
+    const { id } = req.params;
+
+    await eventoModel.actualizarEvento(
+      id,
+      req.body
+    );
+
+    res.json({
+      mensaje:
+        "Evento actualizado"
+    });
+
+  } catch(error) {
+
+    console.error(error);
+
+    res.status(500).json({
+      mensaje:
+        "Error al actualizar"
+    });
+
+  }
+
+};
+
 module.exports = {
     listarEventos,
     crearEvento,
-    eliminarEvento
+    eliminarEvento,
+    actualizarEvento
 };

@@ -48,3 +48,27 @@ export const eliminarEvento =
 
     return await response.json();
 };
+
+export const actualizarEvento = async (
+  id,
+  evento
+) => {
+
+  const response = await fetch(
+    `${API_URL}/${id}`,
+    {
+      method: "PUT",
+
+      headers: {
+        "Content-Type":
+          "application/json"
+      },
+
+      body: JSON.stringify(
+        evento
+      )
+    }
+  );
+
+  return await response.json();
+};

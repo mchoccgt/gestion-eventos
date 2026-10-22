@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { obtenerCategorias } from "../services/categoriaService";
 
-function EventoForm({ onGuardar }) {
+function EventoForm({ onGuardar,onActualizar, onCerrar, eventoEditar }) {
 
     const [formData, setFormData] =
     useState({
@@ -21,6 +21,38 @@ function EventoForm({ onGuardar }) {
         cargarCategorias();
 
     }, []);
+
+    useEffect(() => {
+
+    if (eventoEditar) {
+
+      setFormData({
+        categoria_id:
+          eventoEditar.categoria_id,
+
+        nombre:
+          eventoEditar.nombre,
+
+        descripcion:
+          eventoEditar.descripcion,
+
+        fecha:
+          eventoEditar.fecha
+            ?.slice(0,16),
+
+        lugar:
+          eventoEditar.lugar,
+
+        precio:
+          eventoEditar.precio,
+
+        cupos_totales:
+          eventoEditar.cupos_totales
+      });
+
+    }
+
+    }, [eventoEditar]);
 
     const cargarCategorias =
         async () => {
@@ -48,7 +80,21 @@ function EventoForm({ onGuardar }) {
 
       e.preventDefault();
 
-      await onGuardar(formData);
+      if (eventoEditar) {
+
+        await onActualizar(
+          eventoEditar.id,
+          formData
+        );
+
+      } else {
+
+        await onGuardar(
+          formData
+        );
+
+      }
+      onCerrar();
 
       setFormData({
         categoria_id: 1,
@@ -64,11 +110,25 @@ function EventoForm({ onGuardar }) {
 
   return (
 
-    <form onSubmit={handleSubmit}>
+    <div className="modal-overlay">
+
+    <div className="modal-content">
+
+    <form className="form-container" onSubmit={handleSubmit}>
 
       <h2>
-        Crear Evento
+
+        {
+          eventoEditar
+            ? "Editar Evento"
+            : "Crear Evento"
+        }
+
       </h2>
+
+      <button type="button" onClick={onCerrar}>
+        X
+      </button>
 
         <select
         name="categoria_id"
@@ -153,10 +213,21 @@ function EventoForm({ onGuardar }) {
       <br /><br />
 
       <button type="submit">
-        Guardar Evento
+
+        {
+          eventoEditar
+            ? "Actualizar Evento"
+            : "Guardar Evento"
+        }
+
       </button>
 
     </form>
+
+      </div>
+
+  </div>
+  
   );
 }
 

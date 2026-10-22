@@ -17,13 +17,7 @@ function Dashboard({
 
   return (
 
-    <div
-      style={{
-        border: "1px solid gray",
-        padding: "15px",
-        marginBottom: "20px"
-      }}
-    >
+    <div className="dashboard">
 
       <h2>
         Dashboard

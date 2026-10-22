@@ -1,13 +1,7 @@
-function EventoCard({ evento, onEliminar }) {
+function EventoCard({ evento, onEliminar, onEditar }) {
 
   return (
-    <div
-      style={{
-        border: "1px solid gray",
-        margin: "10px",
-        padding: "10px"
-      }}
-    >
+    <div className="evento-card">
       <h3>{evento.nombre}</h3>
 
       <p>
@@ -29,6 +23,14 @@ function EventoCard({ evento, onEliminar }) {
       </p>
       
       <button
+        onClick={() =>
+          onEditar(evento)
+        }
+      >
+        Editar
+      </button>
+
+      <button className="btn-danger"
         onClick={() =>
           onEliminar(
             evento.id

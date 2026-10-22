@@ -1,13 +1,128 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  padding: 0;
+  background-color: #f4f6f9;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: auto;
   padding: 20px;
 }
 
-h1 {
-  color: #2c3e50;
+.app-header {
+  background-color: #1e3a5f;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-p {
-  color: #555;
+.app-header h1 {
+  margin: 0;
+}
+
+.app-header p {
+  color: #dfe6ee;
+}
+
+.dashboard {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-container button {
+  background-color: #1e3a5f;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #284d79;
+}
+
+.eventos-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.evento-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+.evento-card h3 {
+  margin-top: 0;
+  color: #1e3a5f;
+}
+
+.btn-danger {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: #e74c3c;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+
+  width: 600px;
+  max-width: 90%;
+
+  border-radius: 10px;
+
+  padding: 20px;
+
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
 }

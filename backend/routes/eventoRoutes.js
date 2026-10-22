@@ -20,4 +20,9 @@ router.delete(
   eventoController.eliminarEvento
 );
 
+router.put(
+  '/:id',
+  eventoController.actualizarEvento
+);
+
 module.exports = router;
